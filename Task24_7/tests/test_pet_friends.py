@@ -23,7 +23,7 @@ def test_get_all_pets_with_valid_key(filter=''):
 
 # Проверяем, что можно добавить питомца с корректными данными
 def test_add_new_pet_with_valid_data(name='Барсик', animal_type='кот',
-                                     age='2', pet_photo='images/cat1.jpg'):
+                                     age='2', pet_photo='images/Bars.jpg'):
 
     pet_photo = os.path.join(os.path.dirname(__file__), pet_photo)
 
@@ -41,7 +41,7 @@ def test_successful_delete_self_pet():
     _, my_pets = pf.get_list_of_pets(auth_key, "my_pets")
 
     if len(my_pets['pets']) == 0:
-        pf.add_new_pet(auth_key, "Барс", "кот", "1", "images/cat1.jpg")
+        pf.add_new_pet(auth_key, "Барс", "кот", "1", "images/Bars.jpg")
         _, my_pets = pf.get_list_of_pets(auth_key, "my_pets")
 
     pet_id = my_pets['pets'][0]['id']
@@ -173,7 +173,7 @@ def test_delete_pet_negative():
     _, my_pets = pf.get_list_of_pets(auth_key, "my_pets")
 
     if len(my_pets['pets']) == 0:
-        pf.add_new_pet(auth_key, "Барсик", "кот", "2", "images/cat1.jpg")
+        pf.add_new_pet(auth_key, "Барсик", "кот", "2", "images/Bars.jpg")
         _, my_pets = pf.get_list_of_pets(auth_key, "my_pets")
 
     my_list_id = [my_pets['pets'][i]['id'] for i in range(len(my_pets['pets']))]
@@ -209,7 +209,7 @@ def test_update_pet_negative(name='Брас', animal_type='кот'):
     _, my_pets = pf.get_list_of_pets(auth_key, "my_pets")
 
     if len(my_pets['pets']) == 0:
-        pf.add_new_pet(auth_key, "Барсик", "кот", "2", "images/cat1.jpg")
+        pf.add_new_pet(auth_key, "Барсик", "кот", "2", "images/Bars.jpg")
         _, my_pets = pf.get_list_of_pets(auth_key, "my_pets")
 
     pet_id = my_pets['pets'][0]['id']
@@ -226,7 +226,7 @@ def test_update_pet_negative(name='Брас', animal_type='кот'):
 # Проверка возможности добавления изображения в формате bmp
 def test_add_pet_photo_negative_bmp():
 
-    pet_photo = 'images/cat.bmp'
+    pet_photo = 'images/Barsir.bmp'
 
     pet_photo = os.path.join(os.path.dirname(__file__), pet_photo)
 
@@ -258,7 +258,7 @@ def test_add_pet_photo_negative_bmp():
 # Проверка возможности добавления файла в формате txt вместо допускаемых в форматах jpg, jpeg, png
 def test_add_pet_photo_negative_txt():
 
-    pet_photo = 'images/tex.txt'
+    pet_photo = 'images/Фото.txt'
 
     pet_photo = os.path.join(os.path.dirname(__file__), pet_photo)
 
